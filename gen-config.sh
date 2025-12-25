@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 set -eux -o pipefail
-
 : "${APP_HOME:="$(pwd)"}"
 : "${LITESTREAM_BUCKET:="uptime-kuma"}"
 : "${LITESTREAM_PATH:="uptime-kuma-db"}"
 : "${DATA_DIR:="$APP_HOME/fs/"}"
-
 cat <<EOF > "$APP_HOME"/litestream.yml
 dbs:
   - path: "$DATA_DIR/kuma.db"
@@ -13,13 +11,15 @@ dbs:
       - type: s3
         bucket: "$LITESTREAM_BUCKET"
         path: "$LITESTREAM_PATH"
-        endpoint: "$LITESTREAM_URL"
+EOF
+if [[ -n "${LITESTREAM_URL:-}" ]]; then
+  echo "        endpoint: \"$LITESTREAM_URL\"" >> "$APP_HOME"/litestream.yml
+fi
+cat <<EOF >> "$APP_HOME"/litestream.yml
         region: "$LITESTREAM_REGION"
         access-key-id: "$LITESTREAM_ACCESS_KEY_ID"
         secret-access-key: "$LITESTREAM_SECRET_ACCESS_KEY"
         snapshot-interval: 12h
         retention: 72h
 EOF
-
 echo "Done Litestream config."
-
