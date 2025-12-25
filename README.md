@@ -15,8 +15,24 @@ docker build -t litestream-uptime-kuma .
 ```
 
 ### Run
+
+Upstream repo recommends a method that logs credentials to the console if run in the shell. The following will load credentials from a .env:
+```bash
+docker run -d \
+  --name uptime-kuma \
+  --restart=unless-stopped \
+  -p 3001:3001 \
+  -v uptime-kuma:/app/data \
+  --env-file ~/.uptime-kuma.env \
+  fluential/litestream-uptime-kuma:latest
 ```
-docker run --rm -ti -p 3001:3001 -e LITESTREAM_ACCESS_KEY_ID='XXX' -e LITESTREAM_SECRET_ACCESS_KEY='YYY' -e LITESTREAM_BUCKET=uptime-kuma -e LITESTREAM_URL=https://YYY.r2.cloudflarestorage.com  litestream-uptime-kuma
+with
+
+```
+LITESTREAM_ACCESS_KEY_ID=xxxx
+LITESTREAM_SECRET_ACCESS_KEY=xxxx
+LITESTREAM_BUCKET=xxxx
+LITESTREAM_URL=xxxx
 ```
 
 ## Environment Variables:
