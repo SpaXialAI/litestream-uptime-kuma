@@ -2,8 +2,6 @@
 
 Run uptime kuma with persisten sqlite database via [litestream](https://litestream.io)
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/UfDasl?referralCode=373)
-
 ## Usage
 
 ### Build
@@ -30,9 +28,11 @@ with
 LITESTREAM_ACCESS_KEY_ID=xxxx
 LITESTREAM_SECRET_ACCESS_KEY=xxxx
 LITESTREAM_BUCKET=xxxx
-LITESTREAM_URL=xxxx
+LITESTREAM_URL=https://s3.us-east-1.amazonaws.com
 LITESTREAM_PATH=xxxx
 ```
+
+Note that `LITESTREAM_URL` should be the appropriate region, or point to the endpoint of a compatible service if not using S3 directly (e.g., R2).
 
 ## Environment Variables:
   - `UPTIME_KUMA_VERSION`: Kuma version
