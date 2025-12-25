@@ -31,10 +31,12 @@ LITESTREAM_ACCESS_KEY_ID=xxxx
 LITESTREAM_SECRET_ACCESS_KEY=xxxx
 LITESTREAM_BUCKET=xxxx
 LITESTREAM_URL=xxxx
+LITESTREAM_PATH=xxxx
 ```
 
 ## Environment Variables:
   - `UPTIME_KUMA_VERSION`: Kuma version
+  - `LITESTREAM_PATH`: Prefix for storage
   - `LITESTREAM_VERSION`: Litestream version
   - `LITESTREAM_ACCESS_KEY_ID`: Storage bucket acces key id
   - `LITESTREAM_SECRET_ACCESS_KEY`: Storage bucket access key
