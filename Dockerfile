@@ -1,6 +1,6 @@
 FROM node:20 as builder
 ARG UPTIME_KUMA_VERSION=2.0.2
-ARG LITESTREAM_VERSION=0.5.3
+ARG LITESTREAM_VERSION=0.5.5
 
 ENV APP_HOME /app
 ENV UPTIME_KUMA_VERSION $UPTIME_KUMA_VERSION
@@ -12,7 +12,8 @@ WORKDIR "$APP_HOME"
 
 RUN apt-get update && apt-get -y install iputils-ping wget
 RUN rm -rf "$APP_HOME"/uptime-kuma* && wget -qO uptime-kuma-$UPTIME_KUMA_VERSION.tar.gz https://github.com/louislam/uptime-kuma/archive/refs/tags/$UPTIME_KUMA_VERSION.tar.gz && tar xzf uptime-kuma-$UPTIME_KUMA_VERSION.tar.gz
-RUN rm -rf "$APP_HOME"/litestream* && wget -q https://github.com/benbjohnson/litestream/releases/download/v$LITESTREAM_VERSION/litestream-v$LITESTREAM_VERSION-linux-amd64-static.tar.gz && tar xzf litestream-v$LITESTREAM_VERSION-linux-amd64-static.tar.gz
+RUN rm -rf "$APP_HOME"/litestream* && wget -q https://github.com/benbjohnson/litestream/releases/download/v$LITESTREAM_VERSION/litestream-$LITESTREAM_VERSION-linux-x86_64.tar.gz && tar xzf litestream-$LITESTREAM_VERSION-linux-x86_64.tar.gz
+# https://github.com/benbjohnson/litestream/releases/download/v$LITESTREAM_VERSION/litestream-v$LITESTREAM_VERSION-linux-amd64-static.tar.gz && tar xzf litestream-v$LITESTREAM_VERSION-linux-amd64-static.tar.gz
 
 RUN mkdir -p "$APP_HOME/fs"
 RUN cd uptime-kuma-$UPTIME_KUMA_VERSION && npm ci --production && npm run download-dist
