@@ -20,7 +20,7 @@ docker run -d \
   -p 3001:3001 \
   -v uptime-kuma:/app/data \
   --env-file ~/.uptime-kuma.env \
-  fluential/litestream-uptime-kuma:latest
+  litestream-uptime-kuma:latest
 ```
 with
 
