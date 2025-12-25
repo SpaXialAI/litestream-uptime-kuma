@@ -20,7 +20,7 @@ RUN cd uptime-kuma-$UPTIME_KUMA_VERSION && npm ci --production && npm run downlo
 RUN rm -rf "$DATA_DIR" && mkdir -p "$DATA_DIR"
 RUN ls -la && mv uptime-kuma-$UPTIME_KUMA_VERSION uptime-kuma
 
-FROM node
+FROM node:20
 
 RUN apt-get update && apt-get -y install iputils-ping wget
 
