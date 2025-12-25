@@ -14,6 +14,7 @@ dbs:
         bucket: "$LITESTREAM_BUCKET"
         path: "$LITESTREAM_PATH"
         endpoint: "$LITESTREAM_URL"
+        region: "$LITESTREAM_REGION"
         access-key-id: "$LITESTREAM_ACCESS_KEY_ID"
         secret-access-key: "$LITESTREAM_SECRET_ACCESS_KEY"
         snapshot-interval: 12h
