@@ -30,6 +30,7 @@ LITESTREAM_SECRET_ACCESS_KEY=xxxx
 LITESTREAM_BUCKET=xxxx
 LITESTREAM_URL=https://s3.us-east-1.amazonaws.com
 LITESTREAM_PATH=xxxx
+LITESTREAM_REGION=us-east-1
 ```
 
 Note that `LITESTREAM_URL` should be the appropriate region, or point to the endpoint of a compatible service if not using S3 directly (e.g., R2).
