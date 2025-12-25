@@ -1,4 +1,4 @@
-FROM node as builder
+FROM node:20 as builder
 ARG UPTIME_KUMA_VERSION=1.21.0
 ARG LITESTREAM_VERSION=0.3.9
 
